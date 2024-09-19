@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Reservation</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900">
+    <style>
+        /* General Styles */
+        body {
+            background-image: url('https://unsplash.it/1400/799');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #3E363F;
+            font-family: 'Lato', sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: rgba(62, 54, 63, 0.8); /* Dark background with transparency */
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px); /* Slightly blurred background */
+        }
+
+        h1 {
+            color: #FFFCE8;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            color: #FFFCE8;
+            margin-bottom: 5px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group select, 
+        .form-group input[type="text"], 
+        .form-group input[type="datetime-local"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #DDD;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .form-group select {
+            background-color: #FFFCE8;
+        }
+
+        button {
+            background: #DD403A;
+            border: 0;
+            border-radius: 5px;
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            align-self: center;
+        }
+
+        button:hover {
+            background: #c6362d;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            background: #a02d22;
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Make a Reservation</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                    {% for spot in spots %}
+                        {{ spot.spot_number }}</option>
+                    {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit">Reserve Now</button>
+        </form>
+    </div>
+</body>
+</html>

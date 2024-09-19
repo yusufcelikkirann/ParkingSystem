@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking System</title>
+    <style>
+        /* Genel stil ayarları */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0e0e0;
+            color: #333;
+            overflow: hidden; /* Scroll bar'ı gizle */
+        }
+
+        /* Konteyner sınıfı */
+        .container {
+            width: 100%;
+            max-width: 800px; /* Maksimum genişlik */
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Header stili */
+        header {
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: white;
+            padding: 10px 0; /* Daha dar header */
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em; /* Daha küçük başlık */
+        }
+
+        /* Ana içerik stili */
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 60px); /* Header ve footer yüksekliğini çıkar */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Navigasyon listesi stili */
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        .nav-list li {
+            margin: 15px 0; /* Butonlar arasındaki boşluk */
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-size: 1.2em;
+            color: white;
+            background-color: #28a745;
+            padding: 12px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .nav-link:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        /* Footer stili */
+        footer {
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: white;
+            text-align: center;
+            padding: 10px 0; /* Daha dar footer */
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-sizing: border-box;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em; /* Daha küçük yazı boyutu */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Parking System</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="{% url 'reserve' %}" class="nav-link">Make a Reservation</a></li>
+                <li><a href="{% url 'check_time' %}" class="nav-link">Check Remaining Time</a></li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Parking System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
